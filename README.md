@@ -105,7 +105,7 @@ You can deploy the app to Render, Railway, or any cloud platform supporting Pyth
 
 
 --
-
+```
 🧠 Technologies Used : 
 Flask – Python web framework
 Flask-Migrate – Database migrations
@@ -114,7 +114,7 @@ PyMySQL – MySQL database driver
 Jinja2 – Template engine
 Gunicorn – Production server
 Python-dotenv – Environment configuration
-
+```
 --
 
 🛡️ Security :
@@ -125,12 +125,12 @@ File uploads are validated for size and extension
 --  
 
 🧩 Future Improvements
+```
 Email verification during registration
 Password reset via email
 REST API endpoints for mobile clients
 Docker support for containerized deployment
-
-
+```
 --
 
 💬 Author
