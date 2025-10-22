@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 # Load .env file
 BASE_DIR = Path(__file__).resolve().parent
+
+# Load from .env
 load_dotenv(BASE_DIR / '.env')
 
 class BaseConfig(object):
