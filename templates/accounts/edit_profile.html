@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+{% block title %}Edit Profile{% endblock %}
+
+{% block style %}
+form {
+display: flex;
+flex-direction: column;
+max-width: 400px;
+margin: 30px auto;
+padding: 20px;
+border-radius: 8px;
+background: #f9f9f9;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+form label {
+margin-top: 15px;
+font-weight: bold;
+color: #333;
+}
+
+form input {
+padding: 10px;
+margin-top: 5px;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+
+form button, form a.btn {
+margin-top: 20px;
+padding: 10px;
+text-align: center;
+border: none;
+border-radius: 5px;
+text-decoration: none;
+}
+
+form button {
+background-color: #4CAF50;
+color: white;
+cursor: pointer;
+}
+
+form a.btn {
+background-color: #777;
+color: white;
+}
+
+form a.btn:hover, form button:hover {
+opacity: 0.9;
+}
+{% endblock %}
+
+
+{% block content %}
+<h2 style="text-align:center;">Edit Your Profile</h2>
+
+<form action="{{ url_for('accounts.edit_profile', user_id=account.id) }}"
+      enctype="multipart/form-data" method="post">
+
+     <!-- Hidden input to simulate PATCH -->
+    <input type="hidden" name="_method" value="PATCH">
+
+    {% if account.image_path %}
+        <div style="text-align:center;">
+            <img src="{{ url_for('static', filename=account.image_path) }}"
+                 alt="Profile Image" width="120" height="120" style="border-radius: 50%; margin-bottom:10px;">
+        </div>
+    {% endif %}
+    <label for="profile_image">
+        <i class="fas fa-image"></i> Update Profile Picture
+    </label>
+    <input type="file" name="profile_image" id="profile_image" accept="image/*">
+
+
+    <div>
+        <label for="username">
+            <i class="fas fa-user"></i> Username
+        </label>
+        <input type="text" name="username" value="{{ account.username }}" id="username" required>
+    </div>
+    <div>
+        <label for="email">
+            <i class="fas fa-envelope"></i> Email
+        </label>
+        <input type="email" name="email" value="{{ account.email }}" id="email" required>
+    </div>
+
+    <div><label for="password">
+        <i class="fas fa-lock"></i> New Password (optional)
+    </label>
+        <input type="password" name="password" id="password"></div>
+
+    <div>
+        <label for="conf_password">
+            <i class="fas fa-lock"></i> Confirm Password
+        </label>
+        <input type="password" name="conf_password" id="conf_password">
+
+    </div>
+
+
+    {% if msg %}
+    <p style="color:red;">{{ msg }}</p>
+    {% endif %}
+
+    <button type="submit">Save Changes</button>
+    <a href="{{ url_for('accounts.profile') }}" class="btn">Cancel</a>
+</form>
+
+{% endblock %}

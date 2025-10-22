@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>Profile Page</h2>
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Profile Image :</td>
+            <td> {% if account.image_path %}
+                <img src="{{ url_for('static', filename=account.image_path) }}"
+                     alt="Profile Image" width="120" height="120" style="border-radius: 50%;">
+                {% else %}
+                <img src="{{ url_for('static', filename='images/default.jpg') }}"
+                     alt="Default Avatar" width="120" height="120" style="border-radius: 50%;">
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>Username:</td>
+            <td>{{ account['username'] }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ account['email'] }}</td>
+        </tr>
+
+
+    </table>
+    <div>
+        <a href="{{ url_for('accounts.edit_profile', user_id=account.id) }}">
+            <button class="btn btn-primary">Edit Profile</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

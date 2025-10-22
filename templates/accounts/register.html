@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<body>
+<div class="login">
+    <h1>Register</h1>
+    <div class="links">
+        <a href="{{ url_for('accounts.login') }}">Login</a>
+        <a href="#" class="active">Register</a>
+    </div>
+    <form action="{{ url_for('accounts.register') }}" method="post" enctype="multipart/form-data">
+        <label for="username">
+            <i class="fas fa-user"></i>
+        </label>
+        <input type="text" name="username" placeholder="Username"
+               id="username" required>
+
+        <label for="email">
+            <i class="fas fa-user"></i>
+        </label>
+        <input type="email" name="email" placeholder="Email"
+               id="email" required>
+
+        <label for="profile_image">
+            <i class="fas fa-image"></i>
+        </label>
+        <input type="file" name="profile_image" id="profile_image" accept="image/*">
+
+        <label for="password">
+            <i class="fas fa-lock"></i>
+        </label>
+        <input type="password" name="password"
+               placeholder="Password" id="password" required>
+
+        <label for="conf_password">
+            <i class="fas fa-lock"></i>
+        </label>
+        <input type="password" name="conf_password"
+               placeholder="Confirm Your Password" id="conf_password" required>
+
+        <div class="msg">{{ msg }}</div>
+
+        <input type="submit" value="Register">
+    </form>
+</div>
+</body>
+</html>
