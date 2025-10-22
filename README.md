@@ -104,28 +104,25 @@ Then visit :  http://127.0.0.1:5000
 You can deploy the app to Render, Railway, or any cloud platform supporting Python/Flask.
 
 
+--
 
-🧠 Technologies Used
-
+🧠 Technologies Used : 
 Flask – Python web framework
-
 Flask-Migrate – Database migrations
-
 Flask-SQLAlchemy – ORM for database management
-
 PyMySQL – MySQL database driver
-
 Jinja2 – Template engine
-
 Gunicorn – Production server
-
 Python-dotenv – Environment configuration
 
-🛡️ Security
+--
 
+🛡️ Security :
 Passwords are securely hashed before being stored
 Secret keys are loaded from environment variables
 File uploads are validated for size and extension
+
+--  
 
 🧩 Future Improvements
 Email verification during registration
@@ -133,10 +130,14 @@ Password reset via email
 REST API endpoints for mobile clients
 Docker support for containerized deployment
 
+
+--
+
 💬 Author
 Éric Tchindje
 Machine Learning Engineer & Software Developer
 📧 tchindjeeric61@gmail.com
+
 
 🪪 License
 This project is licensed under the MIT License – feel free to use and modify it.
