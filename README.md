@@ -20,7 +20,7 @@ A complete authentication and user management system built with **Flask**, featu
 ---
 
 ## 🧭 Project Structure
-
+```
 IntchSystem/
 │
 ├── app.py # Application entry point
@@ -50,7 +50,7 @@ IntchSystem/
 ├── layout.html
 ├── index.html
 └── 404.html
-
+```
 
 
 ---
