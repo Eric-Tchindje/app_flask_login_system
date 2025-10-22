@@ -1,12 +1,23 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from accounts.views import accounts
+from config import ProductionConfig, DevelopmentConfig
 from db_extensions import db
 from flask_migrate import Migrate
 import os
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config.DevelopmentConfig')
+
+    # Detect environment (default: development)
+    env = os.getenv('FLASK_ENV', 'development')
+
+    if env == 'production':
+        print("Running in Production mode (PostgreSQL)")
+        app.config.from_object(ProductionConfig)
+    else:
+        print("Running in Development mode (MySQL)")
+        app.config.from_object(DevelopmentConfig)
+
 
     # Initialize SQLAlchemy and Migrate
     db.init_app(app)
