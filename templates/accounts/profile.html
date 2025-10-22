@@ -1,37 +1,77 @@
 {% extends 'layout.html' %}
 {% block title %}Profile{% endblock %}
 
+{% block style %}
+.content table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.content table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.content table td:first-child {
+    font-weight: bold;
+    width: 150px;
+    color: #4a536e;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3274d6;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: 15px;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #2868c7;
+}
+{% endblock %}
+
 {% block content %}
 <h2>Profile Page</h2>
 <div>
     <p>Your account details are below:</p>
     <table>
         <tr>
-            <td>Profile Image :</td>
-            <td> {% if account.image_path %}
-                <img src="{{ url_for('static', filename=account.image_path) }}"
-                     alt="Profile Image" width="120" height="120" style="border-radius: 50%;">
+            <td>Profile Image:</td>
+            <td>
+                {% if account.image_path %}
+                    <img src="{{ url_for('static', filename=account.image_path) }}" alt="Profile Image" class="profile-img">
                 {% else %}
-                <img src="{{ url_for('static', filename='images/default.jpg') }}"
-                     alt="Default Avatar" width="120" height="120" style="border-radius: 50%;">
+                    <img src="{{ url_for('static', filename='images/default.jpg') }}" alt="Default Avatar" class="profile-img">
                 {% endif %}
             </td>
         </tr>
         <tr>
             <td>Username:</td>
-            <td>{{ account['username'] }}</td>
+            <td>{{ account.username }}</td>
         </tr>
         <tr>
             <td>Email:</td>
-            <td>{{ account['email'] }}</td>
+            <td>{{ account.email }}</td>
         </tr>
-
-
     </table>
-    <div>
-        <a href="{{ url_for('accounts.edit_profile', user_id=account.id) }}">
-            <button class="btn btn-primary">Edit Profile</button>
-        </a>
-    </div>
+    <a href="{{ url_for('accounts.edit_profile', user_id=account.id) }}" class="btn">Edit Profile</a>
 </div>
 {% endblock %}

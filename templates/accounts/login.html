@@ -5,23 +5,30 @@
 {% block nav %} {% endblock %}
 
 {%block  content %}
-<div class="login">
+<div class="login", style="margin: auto">
     <h1>Login</h1>
     <div class="links">
         <a href="{{ url_for('accounts.login') }}" class="active">Login</a>
         <a href="{{ url_for('accounts.register') }}">Register</a>
     </div>
-    <form action="{{ url_for('accounts.login') }}" method="post">
-        <label for="email">
-            <i class="fas fa-user"></i>
-        </label>
-        <input type="text" name="email" placeholder="Email"
-               id="email" required>
-        <label for="password">
-            <i class="fas fa-lock"></i>
-        </label>
-        <input type="password" name="password"
-               placeholder="Password" id="password" required>
+    <form  action="{{ url_for('accounts.login') }}" method="post">
+        <div style="display: flex">
+            <label for="email">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="email" placeholder="Email"
+                   id="email" required>
+        </div>
+
+        <div style="display: flex">
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="password" name="password"
+                   placeholder="Password" id="password" required>
+        </div>
+
+
         <div class="msg">{{ msg }}</div>
         <input type="submit" value="Login">
     </form>

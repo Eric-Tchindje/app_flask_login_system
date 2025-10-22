@@ -30,7 +30,7 @@
 
         {# Admin-only link #}
         {% if session.get('loggedin') and session.get('role') == 'admin' %}
-            <a href="{{ url_for('accounts.users') }}"><i class="fas fa-users"></i>Users</a>
+        <a href="{{ url_for('accounts.users') }}"><i class="fas fa-users"></i>Users</a>
         {% endif %}
 
         <a href="{{ url_for('accounts.logout') }}"><i class="fas fa-sign-out-alt"></i>Logout</a>

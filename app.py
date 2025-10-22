@@ -43,8 +43,8 @@ def create_app():
 app = create_app()
 
 # Create tables if not exist (safe on Render)
-with app.app_context():
-    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
