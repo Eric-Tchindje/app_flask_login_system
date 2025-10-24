@@ -3,9 +3,11 @@
 
 {% block content %}
 
-
-<div style="margin: auto">
-    <h2>Users List</h2>
+<div style="margin: auto" xmlns="http://www.w3.org/1999/html">
+    <div style="display: flex; justify-content: space-between" >
+        <h2>Users List</h2>
+        <div style="margin-right: 10px"> <a href="{{ url_for('accounts.register') }}"> + New User</a></div>
+    </div>
     <table style="margin: auto; margin-top: 10px" border="1" cellpadding="8">
         <thead>
         <tr>
